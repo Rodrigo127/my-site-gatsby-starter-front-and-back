@@ -8,14 +8,13 @@ const IndexPage = () => {
   const data = useStaticQuery(query);
 
   return (
-    <Layout seo={data.strapiHomepage.seo}>
+    <>
       <div className="uk-section">
         <div className="uk-container uk-container-large">
           <h1>{data.strapiHomepage.hero.title}</h1>
-          <ArticlesComponent articles={data.allStrapiArticle.edges} />
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 
@@ -28,11 +27,6 @@ const query = graphql`
       seo {
         metaTitle
         metaDescription
-        shareImage {
-          localFile {
-            publicURL
-          }
-        }
       }
     }
     allStrapiArticle {
@@ -44,22 +38,8 @@ const query = graphql`
           category {
             name
           }
-          image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 800, height: 500)
-              }
-            }
-          }
           author {
             name
-            picture {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(width: 30, height: 30)
-                }
-              }
-            }
           }
         }
       }

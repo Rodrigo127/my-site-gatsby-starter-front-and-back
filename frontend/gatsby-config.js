@@ -15,7 +15,7 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: process.env.API_URL || "http://localhost:1337",
+        apiURL: "https://arcane-beyond-54791.herokuapp.com",
         collectionTypes: ["article", "category", "writer"],
         singleTypes: [`homepage`, `global`],
         queryLimit: 1000,
