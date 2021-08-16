@@ -17,7 +17,15 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL || "https://powerful-cliffs-96601.herokuapp.com",
         collectionTypes: [
-          "article", 
+          {
+            name: 'article',
+            api: {
+              qs: {
+                // 'preview' fetches both draft & published content
+                _publicationState: 'preview',
+              }
+            }
+          },
           "category", 
           "writer"
         ],
