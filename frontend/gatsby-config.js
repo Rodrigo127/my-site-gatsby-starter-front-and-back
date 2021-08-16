@@ -15,9 +15,24 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: process.env.API_URL || "http://localhost:1337",
-        collectionTypes: ["article", "category", "writer"],
-        singleTypes: [`homepage`, `global`],
+        apiURL: process.env.API_URL || "https://powerful-cliffs-96601.herokuapp.com",
+        collectionTypes: [
+          "article", 
+          "category", 
+          "writer"
+        ],
+        singleTypes: [
+          {
+            name: 'homepage',
+            api: {
+              qs: {
+                // 'preview' fetches both draft & published content
+                _publicationState: 'preview',
+              }
+            }
+          },
+          `global`
+        ],
         queryLimit: 1000,
       },
     },
